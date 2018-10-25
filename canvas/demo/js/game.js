@@ -121,8 +121,8 @@ function colorStyle(context) {
 	context.stroke(path)
 	for(let x = 0; x < 100; x++) {
 		for(let y = 0; y < 100; y++) {
-			context.fillStyle = 'rgb(255, 255, 1)'
-			context.fillRect(300 + x * 2.55, 150 + y * 2.55, 2.55, 2.55)
+			context.fillStyle = 'rgb(' + Math.floor(255 - x * 2.55) + ', ' + Math.floor(255 - y * 2.55) + ', 255)'
+			context.fillRect(300 + x, 150 + y, 1, 1)
 		}
 	}
 	context.restore()
