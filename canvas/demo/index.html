@@ -14,5 +14,42 @@
 			init()
 			main()
 		</script>
+        <div id="show" style="width: 400px; height: 300px; border: 1px solid aqua; background:  center no-repeat;background-size:contain;">
+        </div>
+        <script>
+            // url(file:///E:/BaiduYunDownload/%E5%8D%97%E9%9F%A9%E5%B0%91%E5%A6%87/2062p/DSC00570.jpg)
+            let show = document.querySelector('#show')
+            let index = 570;
+            let prefix = 'DSC'
+            let subfix = '.jpg'
+            let imgs = []
+            setInterval(()=>{
+                if (imgs.length <= 5) {
+                    let flag = Array((''+index).length <= 5 ? 5 - (''+index).length + 1 : 0).join('0')+index
+                    let name = prefix + flag + subfix;
+                    // let img = document.createElement('img')
+                    let full_path = "file:///E:/BaiduYunDownload/%E5%8D%97%E9%9F%A9%E5%B0%91%E5%A6%87/2062p/" + name
+                    let img = new Image()
+                    img.onload = function() {
+                        console.log("push: " + img.src)
+                        imgs.push(img)
+                    }
+                    img.onerror=function(){
+                        console.log('error: ' + full_path );
+                    }
+                    img.src = full_path
+                    index++
+                    
+                }
+            }, 300)
+            setInterval(()=>{
+                let img = imgs.shift()
+                if (img) {                
+                    console.log("shift: " + img.src)
+                    show.style.backgroundImage = "url(" + img.src + ")"
+                }
+            }, 500)
+            // file:///E:/BaiduYunDownload/%E5%8D%97%E9%9F%A9%E5%B0%91%E5%A6%87/2062p/DSC00576.jpg
+        </script>
 	</body>
 </html>

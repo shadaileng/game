@@ -121,9 +121,17 @@ function colorStyle(context) {
 	context.stroke(path)
 	for(let x = 0; x < 100; x++) {
 		for(let y = 0; y < 100; y++) {
-			context.fillStyle = 'rgb(' + Math.floor(255 - x * 2.55) + ', ' + Math.floor(255 - y * 2.55) + ', 255)'
+			context.fillStyle = 'rgba(' + Math.floor(255 - x * 2.55) + ', ' + Math.floor(255 - y * 2.55) + ', 255, 0.4)'
 			context.fillRect(300 + x, 150 + y, 1, 1)
 		}
+	}
+	for(let x = 0; x < 50; x++) {
+		context.strokeStyle = 'rgb(' + Math.floor(255 - x * 5.1) + ', ' + Math.floor(255 - x * 5.1) + ', 255)'
+		context.beginPath()
+		context.moveTo(200 + x, 250)
+		context.arc(250, 250, 50 - x, Math.PI * 2, 0)
+		context.closePath()
+		context.stroke()
 	}
 	context.restore()
 }
