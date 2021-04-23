@@ -308,3 +308,6 @@ ctx.fillStyle = "#FFA500";
 ctx.fillStyle = "rgb(255,165,0)";
 ctx.fillStyle = "rgba(255,165,0,1)";
 ```
+
+# 参考
+- [Canvas 绘图模糊问题解析](https://www.jianshu.com/p/f443685953ea)
